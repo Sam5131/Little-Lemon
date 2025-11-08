@@ -3,23 +3,26 @@ import {
   Routes
 } from 'react-router-dom';
 import pages from './utils/pages';
+import { CartProvider } from './context/CartContext';
 import Layout from './components/layout/Layout';
 import Home from './components/pages/Home';
+import About from './components/pages/About';
+import Menu from './components/pages/Menu';
+import OrderOnline from './components/pages/OrderOnline';
 import Bookings from './components/pages/Bookings';
 import ConfirmedBooking from './components/pages/Bookings/ConfirmedBooking';
 import NotFound from './components/pages/NotFound';
 import UnderConstruction from './components/pages/UnderConstruction';
-import About from './components/pages/About';
-import Menu from './components/pages/Menu';
+
 const App = () => {
   return (
-    <>
+    <CartProvider>
       <Layout>
         <Routes>
           <Route path={pages.get('home').path} element={<Home />} />
           <Route 
             path={pages.get('about').path} 
-            element={<About />}  // Changed from UnderConstruction
+            element={<About />} 
           />
           <Route 
             path={pages.get('menu').path} 
@@ -32,7 +35,7 @@ const App = () => {
           />
           <Route 
             path={pages.get('orderOnline').path} 
-            element={<UnderConstruction />} 
+            element={<OrderOnline />} 
           />
           <Route 
             path={pages.get('login').path} 
@@ -41,7 +44,7 @@ const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
-    </>
+    </CartProvider>
   );
 };
 
