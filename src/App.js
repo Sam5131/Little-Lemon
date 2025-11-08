@@ -10,6 +10,7 @@ import ConfirmedBooking from './components/pages/Bookings/ConfirmedBooking';
 import NotFound from './components/pages/NotFound';
 import UnderConstruction from './components/pages/UnderConstruction';
 import About from './components/pages/About';
+import Menu from './components/pages/Menu';
 const App = () => {
   return (
     <>
@@ -22,7 +23,7 @@ const App = () => {
           />
           <Route 
             path={pages.get('menu').path} 
-            element={<UnderConstruction />} 
+            element={<Menu />} 
           />
           <Route path={pages.get('bookings').path} element={<Bookings />} />
           <Route 
